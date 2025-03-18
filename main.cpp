@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cmath>
+
 using namespace std;
 
 class Electric_Field
@@ -44,7 +45,7 @@ class Electric_Field
 			return sqrt(E_x*E_x+E_y*E_y+E_z*E_z);
 		}
 
-		double calculteInnerProduct(Electric_field &other)
+		double calculateInnerProduct(Electric_field &other)
 		{
 			return E_x *other.getX()+E_y*other.getY()+E_z*other.getZ();
 		}
@@ -55,7 +56,7 @@ class Electric_Field
 		}
 	};
 
-	class Magnetic field
+	class Magnetic_Field
 	{
 	private:
 		double B_x;
@@ -113,11 +114,11 @@ class Electric_Field
 	{
 		Electric_Field E_default;
 		Electric_Field E_components(1e5, 10.9, 1.7e2);
-		E_default.setField(2.0, 3.0, 4.0);
+		E_default.setfield(2.0, 3.0, 4.0);
 
 		Magnetic_Field B_default;
 		Magnetic_Field B_components(5.0, 6.0, 7.0);
-		B_default.setField(1.0, 2.0, 3.0);
+		B_default.setfield(1.0, 2.0, 3.0);//fixed incorrect function
 
 		E_default.display();
 		cout << "Electric Field Magnitude (Default): " << E_default.calculateMagnitude() << endl;
@@ -139,7 +140,7 @@ class Electric_Field
 		cout << "Inner Product of Electric Fields: " << E_default.calculateInnerProduct(E_components) << endl;
 
 		cout << "Magnetic Field Unit Vector (Components): ";
-		B_components.calculateUnitVector();
+		B_components.calculateUnitVector();//fixed incorrect function 'calculateUniteVector"
 
-				return 0;
+		return 0;
 	}
