@@ -10,7 +10,7 @@ class Electric_Field
 		double E_y;
 		double E_z;
 	public:
-		Electric_field() //default constructor
+		Electric_Field() //default constructor
 		{
 			E_x=0.0;
 			E_y=0.0;
@@ -45,7 +45,7 @@ class Electric_Field
 			return sqrt(E_x*E_x+E_y*E_y+E_z*E_z);
 		}
 
-		double calculateInnerProduct(Electric_field &other)
+		double calculateInnerProduct(Electric_Field &other)
 		{
 			return E_x *other.getX()+E_y*other.getY()+E_z*other.getZ();
 		}
@@ -63,7 +63,7 @@ class Electric_Field
 		double B_y;
 		double B_z;
 	public:
-		Magnetic field() {}//default constructor
+		Magnetic_Field() //default constructor
 		{
 			B_x=0.0;
 			B_y=0.0;
@@ -101,7 +101,7 @@ class Electric_Field
 		void calculateUnitvector()
 		{
 			double mag=calculateMagnitude();
-			cout<<"Unit vector: ("<<B_x/mag<<", " mag << ", " <<B_y/mag<<", "<<B_z/mag<<")" <<endl;
+			cout<<"Unit vector: ("<<B_x/mag<<", " << ", " <<B_y/mag<<", "<<B_z/mag<<")" <<endl;
 		}
 
 		void display()
@@ -118,7 +118,7 @@ class Electric_Field
 
 		Magnetic_Field B_default;
 		Magnetic_Field B_components(5.0, 6.0, 7.0);
-		B_default.setfield(1.0, 2.0, 3.0);//fixed incorrect function
+		B_default.setfield(1.0, 2.0, 3.0);
 
 		E_default.display();
 		cout << "Electric Field Magnitude (Default): " << E_default.calculateMagnitude() << endl;
@@ -130,8 +130,6 @@ class Electric_Field
 		cout << "Electric Field Magnitude (Default): " << E_default.calculateMagnitude() << endl;
 
 		E_components.display();
-		cout << "Electric Field Magnitude (Components): " << E_components.calculateMagnitude() << endl;
-
 		cout << "Magnetic Field Magnitude (Default): " << B_default.calculateMagnitude() << endl;
 
 		B_components.display();
@@ -140,7 +138,8 @@ class Electric_Field
 		cout << "Inner Product of Electric Fields: " << E_default.calculateInnerProduct(E_components) << endl;
 
 		cout << "Magnetic Field Unit Vector (Components): ";
-		B_components.calculateUnitVector();//fixed incorrect function 'calculateUniteVector"
+		//calculate and display unit vector
+		B_components.calculateUnitvector();
 
 		return 0;
 	}
